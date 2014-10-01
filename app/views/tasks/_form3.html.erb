@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<h2>Show Task</h2>
+	<div>
+		<b>Subject:</b><br/>
+		<p>{{user.first_name}}</p>
+	</div>
+
+	<div>
+		<b>Description:</b><br/>
+		<%= @task1.description %>
+	</div>
+
+	<div>
+		<b>Start Time:</b><br/>
+		<%= @task1.starttime %> hours
+	</div>
+
+	<div>
+		<b>Owner:</b><br/>
+		<%= @task1.owner %>
+	</div>
+	<br/>
+<%= link_to 'Edit', edit_task_path(@task1), remote: true %> | <%= link_to 'Destroy', @task1, method: :delete, data: { confirm: 'Are you sure delete this task?' }, remote: true %>

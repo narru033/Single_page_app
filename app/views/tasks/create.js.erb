@@ -1,0 +1,2 @@
+$('#form11').html('<%= j (render "form2") %>');
+$("#baseform").append("<ul><li><a id=task_<%= @task.id %> data-remote=true href=<%= task_path(@task) %>><%= @task.subject %></a></li><br></ul>");

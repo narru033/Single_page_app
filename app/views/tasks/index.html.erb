@@ -1,0 +1,18 @@
+<div style="float:left; margin-top:30px; line-height:5px; width:35%;" id="baseform">
+	<% @tasks = Task.all %>
+	<b><%= link_to 'Create New Task', new_task_path, remote: true %></b>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<% @tasks.each do |task| %>
+	<ul>
+		<li><%= link_to task.subject, task, remote: true, :id =>"task_#{task.id}", :class =>"task" %></li></br/>
+  </ul>
+</div>
+
+<div style="float:right; width:65%;" >
+	<div  id="form11">
+		<%= render 'form' %>
+	</div>
+</div>

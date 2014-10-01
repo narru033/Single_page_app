@@ -1,0 +1,16 @@
+<% if current_page? root_path %>
+	<%= render 'form2' %>	
+	
+<% elsif current_page? new_task_path %>
+	<h2>New Task</h2>
+	<%= render 'form1' %>
+	<%= link_to 'Back', root_path %>
+	
+<% elsif current_page? edit_task_path(@task) %>
+	<h2>Edit Task</h2>
+	<%= render 'form1' %>
+	
+<% elsif current_page? task_path(@task) %>
+	<%= render 'form2' %>
+	
+<% end %>

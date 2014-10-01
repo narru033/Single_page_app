@@ -1,0 +1,50 @@
+<script>
+  $('#datetimepicker_mask').datetimepicker({
+    dayOfWeekStart : 1,
+    lang:'en',
+    //mask:'9999/19/39 29:59',
+    startDate:	'01/01/1991'
+  });
+</script>
+<script>
+$(document).ready(function() {
+	$("#form22").validate({
+		rules: {
+				"task[subject]": {
+		  		required: true,
+					},
+				"task[description]": {
+		  		required: true,
+					},
+				"task[starttime]": {
+		  		required: true,
+					},
+				"task[owner]": {
+		  		required: true,
+					},
+			}
+ });
+});
+</script>
+
+<%= form_for @task, remote: true,:html => { :id => "form22"} do |f| %>
+ 	<div>
+    <%= f.label :Subject %><br/>
+    <%= f.text_field :subject %>
+  </div>
+  <div>
+  	<%= f.label :Description %><br/>
+    <%= f.text_area :description, :rows => 10, :cols => 70, :placeholder => 'Enter text here...' %>
+  </div>
+  <div>
+  	<%= f.label :Start_Time %><br/>
+    <%= f.text_field :starttime, :id => 'datetimepicker_mask', :placeholder => 'Enter Time...' %>
+  </div>
+  <div>	
+  	<%= f.label :Owner %><br/>
+    <%= f.text_field :owner %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
